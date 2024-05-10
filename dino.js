@@ -134,7 +134,7 @@ function handleRun(delta, speedScale) {
   } else if (window.selectedDinoColor === "Black") {
     dinoElem.src = `imgs/dino-run-${dinoFrame} - black.png`;
   } else if (window.selectedDinoColor === "White") {
-    dinoElem.src = `imgs/dino-run-${dinoFrame} - White.png`;
+    dinoElem.src = `imgs/dino-run-${dinoFrame} - white.png`;
   } else if (window.selectedDinoColor === "Red") {
     dinoElem.src = `imgs/dino-run-${dinoFrame} - red.png`;
   } else if (window.selectedDinoColor === "Yellow") {
