@@ -19,13 +19,28 @@
     // dinoColor.js
 let selectedDinoColor;
 
-    function showVideoChatServer() {
-      document.getElementById('ChooseServer').style.display = 'block';
-      document.getElementById('ChooseDino').style.display = 'grid';
-      var optionsCount = document.querySelectorAll('.dino-option').length;
-      var columns = 5; 
-       document.getElementById('ChooseDino').style.gridTemplateColumns = `repeat(${columns}, 2fr)`;
+function showVideoChatServer() {
+  document.getElementById('ChooseServer').style.display = 'block';
+  document.getElementById('ChooseDino').style.display = 'grid';
+  var optionsCount = document.querySelectorAll('.dino-option').length;
+  var columns = 5; 
+  document.getElementById('ChooseDino').style.gridTemplateColumns = `repeat(${columns}, 2fr)`;
+  document.getElementById('ChooseDino').style.overflowX = "auto"; // Add horizontal scrolling functionality
+  
+  // Add @media rule dynamically
+  var style = document.createElement('style');
+  style.type = 'text/css';
+  style.innerHTML = `
+    @media screen and (max-width: 920px) {
+      #ChooseServer {
+        width: 70%;
+        overflow-x: scroll;
+      }
     }
+  `;
+  document.getElementsByTagName('head')[0].appendChild(style);
+}
+
 
     function hideVideoChatServer() {
       document.getElementById('ChooseServer').style.display = 'none';
@@ -74,7 +89,6 @@ let selectedDinoColor;
   </script>
 </head>
 <body style="background-color: black;">
-  <div class="background"></div>
   <div id="video-container">
     <center><button id="Rembut"  onclick="removeVideo()">Remove Frame</button></center>
     <iframe id="video-frame" src="video.html"></iframe>  
@@ -83,7 +97,7 @@ let selectedDinoColor;
   <span>Your Score :</span>
   <div class="world" data-world>
     <div class="score" data-score>0</div>
-    <div class="start-screen" data-start-screen>Press Any Key To Start</div>
+    <div class="start-screen" data-start-screen><h5>Enter Space / "u" To Play</h5></div>
     <img src="imgs/ground - Copy.png" class="ground" data-ground>
     <img src="imgs/ground - Copy.png" class="ground" data-ground>
     <img src="imgs/dino-stationary - classic.png" class="dino" data-dino>
@@ -94,25 +108,25 @@ let selectedDinoColor;
 
   <div id="ChooseServer" style="background-color: rgba(36, 224, 214, 0.951); display: none;align-items: center;padding-top: 2%;">
     <center><div id="ChooseDino" data-dino-type>
-      <div class="dino-option"   onclick="selectDino('classic')"><img src="imgs/dino-stationary - classic.png" id="Classic"><p>Classic</p></div>
-      <div class="dino-option"   onclick="selectDino('green')"><img src="imgs/dino-stationary - green.png" id="Green"><p>Green</p></div>
-      <div class="dino-option"   onclick="selectDino('Cyan')"><img src="imgs/dino-stationary - Cyan.png" id="Cyan"><p>Cyan</p></div>
-      <div class="dino-option"   onclick="selectDino('White')"><img src="imgs/dino-stationary - white.png" id="White"><p>White</p></div>
-      <div class="dino-option"   onclick="selectDino('Red')"><img src="imgs/dino-stationary - red.png" id="Red"><p>Red</p></div>
-      <div class="dino-option"   onclick="selectDino('Yellow')"><img src="imgs/dino-stationary - yellow.png" id="Yellow"><p>Yellow</p></div>
-      <div class="dino-option"   onclick="selectDino('Purple')"><img src="imgs/dino-stationary - purple.png" id="Purple"><p>Purple</p></div>
-      <div class="dino-option"   onclick="selectDino('Teal')"><img src="imgs/dino-stationary - Teal.png" id="Teal"><p>Teal</p></div>    
-      <div class="dino-option"   onclick="selectDino('Orange')"><img src="imgs/dino-stationary - orange.png" id="Orange"><p>Orange</p></div>
-      <div class="dino-option"   onclick="selectDino('Lime')"><img src="imgs/dino-stationary - Lime.png" id="Lime"><p>Lime</p></div> 
-      <div class="dino-option"   onclick="selectDino('Black')"><img src="imgs/dino-stationary - black.png" id="Black"><p>Black</p></div>
-      <div class="dino-option"   onclick="selectDino('Gold')"><img src="imgs/dino-stationary - gold.png" id="Gold"><p>Gold</p></div>    
-      <div class="dino-option"   onclick="selectDino('Pink')"><img src="imgs/dino-stationary - pink.png" id="Pink"><p>Pink</p></div>
-      <div class="dino-option"   onclick="selectDino('Peach')"><img src="imgs/dino-stationary - Peach.png" id="Peach"><p>Peach</p></div>
-      <div class="dino-option"   onclick="selectDino('Cream')"><img src="imgs/dino-stationary - Cream.png" id="Cream"><p>Cream</p></div>
+      <div class="dino-option"   onclick="selectDino('classic')"><img src="imgs/dino-stationary - classic.png" id="cpic"><p>Classic</p></div>
+      <div class="dino-option"   onclick="selectDino('green')"><img src="imgs/dino-stationary - green.png" id="cpic"><p>Green</p></div>
+      <div class="dino-option"   onclick="selectDino('Cyan')"><img src="imgs/dino-stationary - Cyan.png" id="cpic"><p>Cyan</p></div>
+      <div class="dino-option"   onclick="selectDino('White')"><img src="imgs/dino-stationary - white.png" id="cpic"><p>White</p></div>
+      <div class="dino-option"   onclick="selectDino('Red')"><img src="imgs/dino-stationary - red.png" id="cpic"><p>Red</p></div>
+      <div class="dino-option"   onclick="selectDino('Yellow')"><img src="imgs/dino-stationary - yellow.png" id="cpic"><p>Yellow</p></div>
+      <div class="dino-option"   onclick="selectDino('Purple')"><img src="imgs/dino-stationary - purple.png" id="cpic"><p>Purple</p></div>
+      <div class="dino-option"   onclick="selectDino('Teal')"><img src="imgs/dino-stationary - Teal.png" id="cpic"><p>Teal</p></div>    
+      <div class="dino-option"   onclick="selectDino('Orange')"><img src="imgs/dino-stationary - orange.png" id="cpic"><p>Orange</p></div>
+      <div class="dino-option"   onclick="selectDino('Lime')"><img src="imgs/dino-stationary - Lime.png" id="cpic"><p>Lime</p></div> 
+      <div class="dino-option"   onclick="selectDino('Black')"><img src="imgs/dino-stationary - black.png" id="cpic"><p>Black</p></div>
+      <div class="dino-option"   onclick="selectDino('Gold')"><img src="imgs/dino-stationary - gold.png" id="cpic"><p>Gold</p></div>    
+      <div class="dino-option"   onclick="selectDino('Pink')"><img src="imgs/dino-stationary - pink.png" id="cpic"><p>Pink</p></div>
+      <div class="dino-option"   onclick="selectDino('Peach')"><img src="imgs/dino-stationary - Peach.png" id="cpic"><p>Peach</p></div>
+      <div class="dino-option"   onclick="selectDino('Cream')"><img src="imgs/dino-stationary - Cream.png" id="cpic"><p>Cream</p></div>
     </div>
-    <button style="background-color: #261dcc;border-radius: 15%;" onclick="hideVideoChatServer()"><p style="color: #fff;">Cancel</p></button>
+    <button style="background-color: rgb(5, 5, 234);border-radius: 5px;width: 150px;height: 50px;color: #ffffff;font-size: 25px;" onclick="hideVideoChatServer()">Cancel</button>
     </center>
   </div> 
-    <button id="customize" onclick="showVideoChatServer()">customize</button>
+  <input id="controlButton" style="color: black;"></input> <button id="customize" onclick="showVideoChatServer()">customize</button>
 </body>
 </html>
